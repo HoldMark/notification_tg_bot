@@ -9,14 +9,19 @@ from schedule import scheduler
 dp = Dispatcher()
 
 
-async def main() -> None:
+async def start_bot() -> None:
 
     logger.info('Start bot')
-    scheduler.start()
 
-    await bot.delete_webhook(drop_pending_updates=True)
-    await dp.start_polling(bot)
+    try:
+        scheduler.start()
+        await bot.delete_webhook(drop_pending_updates=True)
+        await dp.start_polling(bot)
+    except Exception as e:
+        logger.info(e)
+    finally:
+        await bot.session.close()
 
 
 if __name__ == '__main__':
-    asyncio.run(main())
+    asyncio.run(start_bot())

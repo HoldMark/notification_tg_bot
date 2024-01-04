@@ -1,5 +1,5 @@
 import random
-from config import TEXTS
+from core.config import TEXTS
 
 
 def get_random_text():

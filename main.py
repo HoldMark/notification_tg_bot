@@ -1,14 +1,12 @@
 import asyncio
 from aiogram import Dispatcher
 
-from bot_init import bot
-from logger import logger
-from handlers import router
+from core.bot_init import bot
+from core.logger import logger
 from schedule import scheduler
 
 
 dp = Dispatcher()
-dp.include_router(router)
 
 
 async def main() -> None:

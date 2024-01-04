@@ -1,6 +1,6 @@
 from aiogram import Bot
-from config import TG_USER_ID
-from utils import get_random_text
+from core.config import TG_USER_ID
+from utils.random_text import get_random_text
 
 
 async def auto_send_msg(bot: Bot):

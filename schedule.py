@@ -1,6 +1,6 @@
-from bot_init import bot
-from time_message import auto_send_msg
-from rand_time import schedule
+from core.bot_init import bot
+from auto_send_msg import auto_send_msg
+from utils.random_time_schedule import schedule
 
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
 

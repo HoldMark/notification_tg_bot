@@ -1,30 +1,24 @@
 import asyncio
-import logging
+from aiogram import Dispatcher
 
-from aiogram import Bot, Dispatcher
-from config import BOT_TOKEN
+from bot_init import bot
+from logger import logger
 from handlers import router
+from schedule import scheduler
 
 
-logger = logging.getLogger(__name__)
+dp = Dispatcher()
+dp.include_router(router)
 
 
 async def main() -> None:
 
-    logging.basicConfig(
-        level=logging.INFO,
-        format='%(filename)s:%(lineno)d #%(levelname)-8s '
-               '[%(asctime)s] - %(name)s - %(message)s'
-    )
-
     logger.info('Start bot')
-
-    bot = Bot(token=BOT_TOKEN, parse_mode='HTML')
-    dp = Dispatcher()
-    dp.include_router(router)
+    scheduler.start()
 
     await bot.delete_webhook(drop_pending_updates=True)
     await dp.start_polling(bot)
+
 
 if __name__ == '__main__':
     asyncio.run(main())

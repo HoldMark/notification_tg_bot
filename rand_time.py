@@ -6,8 +6,6 @@ year = date.today().year
 month = date.today().month
 day = date.today().day
 
-d1 = datetime(year=year, month=month, day=day, hour=12, minute=30, second=15)
-
 
 def get_random_minute():
     return random.randint(1, 59)
@@ -23,7 +21,7 @@ def get_random_minute_with_condition(rlm):
 def get_list_random_minutes():
     rand_list = [get_random_minute()]
 
-    for _ in range(4):
+    for _ in range(7):
         rand_list.append(get_random_minute_with_condition(rand_list))
 
     return sorted(rand_list)
@@ -34,6 +32,3 @@ schedule = []
 for h in range(9, 18):
     for m in get_list_random_minutes():
         schedule.append(datetime(year=year, month=month, day=day, hour=h, minute=m, second=0))
-
-for i in schedule:
-    print(i)

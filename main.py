@@ -4,9 +4,11 @@ from aiogram import Dispatcher
 from core.bot_init import bot
 from core.logger import logger
 from schedule import scheduler
-
+from commands import set_commands
+from handler import router
 
 dp = Dispatcher()
+dp.include_router(router)
 
 
 async def start_bot() -> None:
@@ -15,6 +17,7 @@ async def start_bot() -> None:
 
     try:
         scheduler.start()
+        await set_commands(bot)
         await bot.delete_webhook(drop_pending_updates=True)
         await dp.start_polling(bot)
     except Exception as e:

@@ -14,6 +14,7 @@ dp.include_router(router)
 async def start_bot() -> None:
 
     logger.info('Start bot')
+    logger.info(bot.token)
 
     try:
         scheduler.start()

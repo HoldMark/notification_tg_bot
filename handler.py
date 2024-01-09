@@ -16,12 +16,12 @@ async def remove_msgs_today(*args, **kwargs):
             scheduler.remove_job(i.id)
 
 
-@router.message()
-async def mirror_answer(msg: Message, bot: Bot):
-    await bot.send_message(msg.from_user.id, msg.text)
-
-
 @router.message(Command('reset_today'))
 async def reset_msgs_today(*args, **kwargs):
     await remove_msgs_today()
     set_schedule_for_today()
+
+
+@router.message()
+async def mirror_answer(msg: Message, bot: Bot):
+    await bot.send_message(msg.from_user.id, msg.text)

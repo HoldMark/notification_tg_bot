@@ -2,7 +2,7 @@ from aiogram import Router, Bot
 from aiogram.filters import Command
 from aiogram.types import Message
 
-from schedule import scheduler
+from schedule import scheduler, set_schedule_for_today
 
 router = Router()
 
@@ -19,3 +19,9 @@ async def remove_msgs_today(*args, **kwargs):
 @router.message()
 async def mirror_answer(msg: Message, bot: Bot):
     await bot.send_message(msg.from_user.id, msg.text)
+
+
+@router.message(Command('reset_today'))
+async def reset_msgs_today(*args, **kwargs):
+    await remove_msgs_today()
+    set_schedule_for_today()

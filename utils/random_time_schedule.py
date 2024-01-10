@@ -6,17 +6,17 @@ def get_random_minute():
     return random.randint(1, 59)
 
 
-def get_random_minute_with_condition(rlm):
+def get_random_minute_with_condition(rlm: list, interval: int = 5):
     r = get_random_minute()
-    while any(abs(r - i) < 5 for i in rlm):
+    while any(abs(r - i) < interval for i in rlm):
         r = get_random_minute()
     return r
 
 
-def get_list_random_minutes():
+def get_list_random_minutes(count: int = 7):
     rand_list = [get_random_minute()]
 
-    for _ in range(7):
+    for _ in range(count):
         rand_list.append(get_random_minute_with_condition(rand_list))
 
     return sorted(rand_list)

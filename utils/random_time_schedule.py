@@ -2,11 +2,6 @@ import random
 from datetime import datetime, date
 
 
-year = date.today().year
-month = date.today().month
-day = date.today().day
-
-
 def get_random_minute():
     return random.randint(1, 59)
 
@@ -27,8 +22,15 @@ def get_list_random_minutes():
     return sorted(rand_list)
 
 
-schedule = []
+def get_schedule_for_today():
+    year = date.today().year
+    month = date.today().month
+    day = date.today().day
 
-for h in range(9, 18):
-    for m in get_list_random_minutes():
-        schedule.append(datetime(year=year, month=month, day=day, hour=h, minute=m, second=0))
+    schedule = []
+
+    for h in range(9, 18):
+        for m in get_list_random_minutes():
+            schedule.append(datetime(year=year, month=month, day=day, hour=h, minute=m, second=0))
+
+    return schedule

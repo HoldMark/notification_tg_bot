@@ -10,7 +10,7 @@ Just send msg in random time from 9:00 to 18:00
 2. Install requirements
 
 ```shell
-pip install 
+pip install -r requirements.txt
 ```
 
 3. Run

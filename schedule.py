@@ -10,7 +10,7 @@ scheduler = AsyncIOScheduler(timezone="Europe/Moscow")
 
 def set_schedule_for_today():
 
-    schedule = get_schedule_for_period(amount=7, interval=5, start=9, end=18)
+    schedule = get_schedule_for_period(amount=8, interval=5, start=9, end=18)
 
     for date_time in schedule:
         scheduler.add_job(auto_send_msg, trigger='date', run_date=date_time, kwargs={'bot': bot})

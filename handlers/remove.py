@@ -1,9 +1,11 @@
-from schedule import scheduler
+from aiogram import Bot
+from aiogram.types import Message
+from utils.remove_job import remove_job
 
 
-async def remove_msgs_today(*args, **kwargs):
-    job_list = scheduler.get_jobs()
+async def remove_msgs_today(msg: Message, bot: Bot):
 
-    for i in job_list:
-        if i.name == 'auto_send_msg':
-            scheduler.remove_job(i.id)
+    user_id = msg.from_user.id
+    remove_job(user_id)
+
+    await bot.send_message(user_id, text='Убрали уведомления на сегодня')

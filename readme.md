@@ -1,6 +1,6 @@
 # Straight Back Bot
 
-Just send msg in random time from 9:00 to 18:00 
+Just send msg in random time from 9:00 to 18:00.
 
 
 ### How To Start

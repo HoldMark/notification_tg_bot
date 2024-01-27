@@ -21,4 +21,4 @@ dp.message.register(remove_msgs_today, Command('remove_today'))
 dp.message.register(prolong, Command('prolong'))
 dp.message.register(get_hours, ProlongState.GET_HOUR)
 
-# dp.message.register(mirror_answer)
+dp.message.register(mirror_answer)

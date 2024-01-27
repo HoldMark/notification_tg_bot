@@ -8,7 +8,8 @@ async def set_commands(bot: Bot):
         BotCommand(command='set_today', description='Установить список уведомлений'),
         BotCommand(command='remove_today', description='Не отправлять сегодня уведомления'),
         BotCommand(command='reset_today', description='Переустановить уведомления'),
-        BotCommand(command='get_list', description='Получить список уведомлений')
+        BotCommand(command='get_list', description='Получить список уведомлений'),
+        BotCommand(command='prolong', description='Продлить на n часов')
     ]
 
     await bot.set_my_commands(commands, BotCommandScopeDefault())

@@ -1,6 +1,8 @@
 import random
 from datetime import datetime, date
 
+# TODO переписать, чтобы можно было указывать часы + минуты
+
 
 # выдает радномную минуту
 def rand_min() -> int:
@@ -67,3 +69,8 @@ def get_schedule_for_period(amount, interval, start=9, end=18):
             schedule.append(datetime(year=year, month=month, day=day, hour=hour, minute=minute, second=0))
 
     return schedule
+
+
+def get_schedule_for_hours(hours):
+    current_hour = datetime.now().hour
+    return get_schedule_for_period(amount=8, interval=5, start=current_hour, end=current_hour+hours)

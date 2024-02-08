@@ -246,4 +246,4 @@ fabric.properties
 # Own exceptions:
 *.sqlite
 /systemd
-/test
+/tests

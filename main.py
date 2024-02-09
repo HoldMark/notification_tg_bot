@@ -14,7 +14,6 @@ logger = logging.getLogger(f'bot.{__name__}')
 
 async def start_bot() -> None:
     logger.info('Start bot')
-    logger.info(bot.token)
 
     try:
         scheduler.start()
@@ -22,8 +21,9 @@ async def start_bot() -> None:
         await bot.delete_webhook(drop_pending_updates=True)
         await dp.start_polling(bot)
     except Exception as e:
-        logger.info(e)
+        logger.error('Error in start', exc_info=True)
     finally:
+        logger.info('Stop bot')
         await bot.session.close()
 
 

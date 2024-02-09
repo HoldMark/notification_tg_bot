@@ -1,9 +1,44 @@
+import sys
+import os
 import logging
+from logging import StreamHandler, Formatter
+from logging.handlers import RotatingFileHandler
+from config import LOGS_DIR
 
-logger = logging.getLogger(__name__)
+LOGS_PATH_LIBS = os.path.join(LOGS_DIR, 'libs')
+LOGS_PATH_PROJECT = os.path.join(LOGS_DIR, 'project')
 
-logging.basicConfig(
-    level=logging.INFO,
-    format='%(filename)s:%(lineno)d #%(levelname)-8s '
-           '[%(asctime)s] - %(name)s - %(message)s'
+
+def namer(name):
+    return name + '.log'
+
+
+default_formatter = Formatter(
+    fmt='%(filename)s:%(lineno)d #%(levelname)s [%(asctime)s] - %(name)s - %(message)s'
 )
+
+sh = StreamHandler(stream=sys.stdout)
+sh.setFormatter(default_formatter)
+
+rfh_libs = RotatingFileHandler(filename=f'{LOGS_PATH_LIBS}.log', mode='a', maxBytes=200_000_000, backupCount=2)
+rfh_libs.setFormatter(default_formatter)
+rfh_libs.namer = namer
+
+rfh_project = RotatingFileHandler(filename=f'{LOGS_PATH_PROJECT}.log', mode='a', maxBytes=200_000_000, backupCount=2)
+rfh_project.setFormatter(default_formatter)
+rfh_project.namer = namer
+
+
+root_logger = logging.getLogger()
+root_logger.setLevel('INFO')
+
+root_logger.addHandler(sh)
+root_logger.addHandler(rfh_libs)
+
+bot_logger = logging.getLogger('bot')
+bot_logger.setLevel('DEBUG')
+
+bot_logger.addHandler(sh)
+bot_logger.addHandler(rfh_project)
+
+bot_logger.propagate = False

@@ -1,7 +1,7 @@
 from core.bot_init import bot
 from utils.auto_send_msg import auto_send_msg
 from utils.get_schedule import get_schedule_for_period, get_schedule_for_hours
-from core.config import TG_USER_ID
+from config import TG_USER_ID
 
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
 

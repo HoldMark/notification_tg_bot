@@ -1,5 +1,5 @@
 from aiogram import Bot
-from core.config import TG_USER_ID
+from config import TG_USER_ID
 from utils.random_text import get_random_text
 
 

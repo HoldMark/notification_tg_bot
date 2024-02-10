@@ -14,8 +14,8 @@ def remove_job(user_id):
 
     for job in job_list:
 
-        logger.debug(f'Job with id: {job.id}, name: {job.name}, kwargs["user_id"]: {job.kwargs['user_id']}')
+        logger.debug(f'Job with id: {job.id}, name: {job.name}, kwargs["user_id"]: {job.kwargs["user_id"]}')
 
         if job.name == 'auto_send_msg' and job.kwargs['user_id'] == user_id:
             scheduler.remove_job(job.id)
-            logger.debug(f'Removed job with id: {job.id}, name: {job.name}, kwargs["user_id"]: {job.kwargs['user_id']}')
+            logger.debug(f'Removed job with id: {job.id}, name: {job.name}, kwargs["user_id"]: {job.kwargs["user_id"]}')

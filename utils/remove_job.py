@@ -1,5 +1,5 @@
 import logging
-from schedule import scheduler
+from core.schedule import scheduler
 
 
 logger = logging.getLogger(f'bot.{__name__}')

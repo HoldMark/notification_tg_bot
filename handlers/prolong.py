@@ -6,7 +6,7 @@ from aiogram.fsm.context import FSMContext
 from utils.states_prolong import ProlongState
 
 from utils.remove_job import remove_job
-from schedule import set_schedule_for_period
+from core.schedule import set_schedule_for_period
 
 
 logger = logging.getLogger(f'bot.{__name__}')

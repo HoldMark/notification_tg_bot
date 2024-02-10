@@ -3,7 +3,7 @@ import os
 import logging
 from logging import StreamHandler, Formatter
 from logging.handlers import RotatingFileHandler
-from config import LOGS_DIR
+from core.config import LOGS_DIR
 
 LOGS_PATH_LIBS = os.path.join(LOGS_DIR, 'libs')
 LOGS_PATH_PROJECT = os.path.join(LOGS_DIR, 'project')

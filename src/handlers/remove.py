@@ -2,7 +2,7 @@ import logging
 
 from aiogram import Bot
 from aiogram.types import Message
-from utils.remove_job import remove_job
+from src.utils.remove_job import remove_job
 
 logger = logging.getLogger(f'bot.{__name__}')
 

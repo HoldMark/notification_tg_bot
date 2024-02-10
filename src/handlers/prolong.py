@@ -3,10 +3,10 @@ import logging
 from aiogram import Bot
 from aiogram.types import Message
 from aiogram.fsm.context import FSMContext
-from utils.states_prolong import ProlongState
+from src.utils.states_prolong import ProlongState
 
-from utils.remove_job import remove_job
-from core.schedule import set_schedule_for_period
+from src.utils.remove_job import remove_job
+from src.core.schedule import set_schedule_for_period
 
 
 logger = logging.getLogger(f'bot.{__name__}')

@@ -2,7 +2,7 @@ import logging
 
 from aiogram import Bot
 from aiogram.types import Message
-from core.schedule import set_schedule_for_today
+from src.core.schedule import set_schedule_for_today
 
 
 logger = logging.getLogger(f'bot.{__name__}')

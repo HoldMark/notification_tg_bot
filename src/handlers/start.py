@@ -2,7 +2,7 @@ import logging
 
 from aiogram import Bot
 from aiogram.types import Message
-from data.text import GREETING_TEXT
+from src.data.text import GREETING_TEXT
 
 logger = logging.getLogger(f'bot.{__name__}')
 

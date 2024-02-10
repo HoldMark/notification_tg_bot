@@ -1,11 +1,11 @@
 import logging
 
 import asyncio
-from core.bot_init import bot
-from core.dispetcher import dp
+from src.core.bot_init import bot
+from src.core.dispetcher import dp
 
-from core.schedule import scheduler
-from core.commands import set_commands
+from src.core.schedule import scheduler
+from src.core.commands import set_commands
 
 
 logger = logging.getLogger(f'bot.{__name__}')

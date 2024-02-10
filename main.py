@@ -1,4 +1,5 @@
 import logging
+import src.core.logger
 
 import asyncio
 from src.core.bot_init import bot

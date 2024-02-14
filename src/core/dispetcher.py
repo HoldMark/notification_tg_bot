@@ -1,7 +1,7 @@
 from aiogram import Dispatcher
 from aiogram.filters import Command
 
-from src.middleware.counter_msg import CounterMiddleware
+from src.middleware.clear_state_mw import ClearStateMiddleware
 
 
 from src.handlers.prolong import prolong, get_hours
@@ -16,7 +16,7 @@ from src.utils.states_prolong import ProlongState
 
 dp = Dispatcher()
 
-dp.message.middleware.register(CounterMiddleware())
+dp.message.middleware.register(ClearStateMiddleware())
 
 dp.message.register(start_command, Command('start'))
 dp.message.register(get_notification_list, Command('get_list'))

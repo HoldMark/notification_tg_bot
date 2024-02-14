@@ -4,7 +4,7 @@ from typing import Dict, Any, Callable, Awaitable
 from aiogram.fsm.context import FSMContext
 
 
-class CounterMiddleware(BaseMiddleware):
+class ClearStateMiddleware(BaseMiddleware):
 
     async def __call__(
         self,
@@ -12,13 +12,7 @@ class CounterMiddleware(BaseMiddleware):
         event: Message,
         data: Dict[str, Any]
     ) -> Any:
+        state: FSMContext = data.get('state')
         if event.text in ['/start', '/get_list', '/set', '/reset', '/remove', '/prolong']:
-            await event.answer(event.get('state'))
+            await state.clear()
         return await handler(event, data)
-
-
-# async def clear_state(event: Message) -> None:
-#     state: FSMContext = event.get('state')
-#
-#     if state is not None:
-#         await state.clear()

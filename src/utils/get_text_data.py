@@ -15,7 +15,7 @@ try:
 
     logger.info('Try to get text data from file')
 
-    with open(f'{DATA_DIR}/text_data.json', 'r') as file:
+    with open(f'{DATA_DIR}/text_data.json', 'r', encoding='UTF-8') as file:
         json_text = json.load(file)
 
 except Exception as e:
